@@ -1,0 +1,1 @@
+console.log("Hello, world! This is the popup script for the Chrome extension.");

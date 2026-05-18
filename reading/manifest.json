@@ -1,0 +1,24 @@
+{
+    "manifest_version": 3,
+    "name": "A reading Chrome Extension",
+    "version": "1.0",
+    "description": "A Chrome extension to enhance reading experience.",
+    "content_scripts": [
+        {
+        "matches": ["<all_urls>"],
+        "js": ["scripts/content.js"]
+        }
+    ],
+    "permissions": [
+        "activeTab"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+        "16": "images/icon-16.png",
+        "32": "images/icon-32.png",
+        "48": "images/icon-48.png",
+        "128": "images/icon-128.png"
+        }
+    }
+}

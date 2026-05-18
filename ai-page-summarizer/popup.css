@@ -1,0 +1,14 @@
+body {
+  width: 300px;
+  padding: 15px;
+  font-family: Arial;
+}
+
+#output {
+  margin-top: 10px;
+  background: #f1f1f1;
+  padding: 10px;
+  border-radius: 8px;
+  max-height: 300px;
+  overflow-y: auto;
+}
