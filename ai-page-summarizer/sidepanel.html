@@ -60,17 +60,24 @@
 
       <!-- Action button -->
       <div class="action-row">
-        <button class="summarize-btn" id="summarizeButton">
-          <span class="btn-icon">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
-              <path d="M12 3v1m0 16v1M4.22 4.22l.707.707m12.728 12.728.707.707M3 12h1m16 0h1M4.927 19.073l.707-.707M18.364 5.636l.707-.707" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/>
-            </svg>
-          </span>
-          <span class="btn-label">Summarize</span>
-          <span class="btn-shine"></span>
+
+        <button class="ai-action-btn active" data-action="summarize">
+            Summarize
         </button>
-      </div>
+
+        <button class="ai-action-btn" data-action="explain">
+            Explain
+        </button>
+
+        <button class="ai-action-btn" data-action="notes">
+            Notes
+        </button>
+
+        <button class="ai-action-btn" data-action="keypoints">
+            Key Points
+        </button>
+
+</div>
 
       <!-- Summary section -->
       <section class="section summary-section">

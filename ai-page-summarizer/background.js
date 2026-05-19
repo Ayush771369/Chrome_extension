@@ -36,16 +36,46 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
     if (request.action === "summarizeText") {
 
-        const apiKey = "AIzaSyCHscTvYIpWPD94-TVihv1wVLPI-y2RrY0";
+        const apiKey = "AIzaSyClt-eWvV7AbD2-5_N--uGE0_ps7nfIcsk";
 
         const apiUrl =`https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+
+		let prompt = "";
+
+		if (request.actionType === "summarize") {
+
+			prompt =
+			`Summarize this text clearly and concisely:\n\n${request.text}`;
+
+		}
+
+		if (request.actionType === "explain") {
+
+			prompt =
+			`Explain this text in very simple beginner-friendly words:\n\n${request.text}`;
+
+		}
+
+		if (request.actionType === "notes") {
+
+			prompt =
+			`Convert this text into clean and organized study notes:\n\n${request.text}`;
+
+		}
+
+		if (request.actionType === "keypoints") {
+
+			prompt =
+			`Extract the key takeaways from this text as bullet points:\n\n${request.text}`;
+
+		}
 
         const requestBody = {
             contents: [
                 {
                     parts: [
                         {
-                            text: `Summarize this text in a concise and clear way:\n\n${request.text}`
+                            text: prompt
                         }
                     ]
                 }

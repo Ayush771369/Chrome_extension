@@ -526,3 +526,41 @@ body {
   background: rgba(212,175,100,0.2);
   color: var(--text-primary);
 }
+
+.action-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ai-action-btn {
+  flex: 1;
+  min-width: 100px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: #181b22;
+  color: #d7dae0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.ai-action-btn:hover {
+  background: #222631;
+  border-color: rgba(212,175,100,0.25);
+}
+
+.ai-action-btn.active {
+  background: linear-gradient(
+    135deg,
+    #e8c96a 0%,
+    #d4af64 50%,
+    #c49a3c 100%
+  );
+
+  color: #0b0c10;
+  border: none;
+  font-weight: 700;
+}
