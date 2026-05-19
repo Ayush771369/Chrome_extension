@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="sidepanel.css" />
+</head>
+<body>
+
+  <!-- Ambient background orbs -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <div class="panel-wrapper">
+
+    <!-- Header -->
+    <header class="panel-header">
+      <div class="header-left">
+        <div class="logo-mark">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M2 17l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="header-text">
+          <span class="header-title">Lens AI</span>
+          <span class="header-subtitle">Page Assistant</span>
+        </div>
+      </div>
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        <span>Ready</span>
+      </div>
+    </header>
+
+    <!-- Divider -->
+    <div class="header-rule"></div>
+
+    <!-- Main content -->
+    <main class="panel-main">
+
+      <!-- Selected text section -->
+      <section class="section">
+        <div class="section-label">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+            <path d="M7 8h10M7 12h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Selected Text
+        </div>
+        <div class="text-card" id="output">
+          <span class="placeholder-text">Select text on any page to get started…</span>
+        </div>
+      </section>
+
+      <!-- Action button -->
+      <div class="action-row">
+        <button class="summarize-btn" id="summarizeButton">
+          <span class="btn-icon">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+              <path d="M12 3v1m0 16v1M4.22 4.22l.707.707m12.728 12.728.707.707M3 12h1m16 0h1M4.927 19.073l.707-.707M18.364 5.636l.707-.707" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/>
+            </svg>
+          </span>
+          <span class="btn-label">Summarize</span>
+          <span class="btn-shine"></span>
+        </button>
+      </div>
+
+      <!-- Summary section -->
+      <section class="section summary-section">
+        <div class="section-label">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
+            <path d="M9 12h6M9 16h4M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Summary
+        </div>
+        <div class="summary-card" id="summaryOutput">
+          <div class="summary-empty-state">
+            <div class="empty-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" opacity="0.5"/>
+                <path d="M2 17l10 5 10-5" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" opacity="0.3"/>
+                <path d="M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" opacity="0.4"/>
+              </svg>
+            </div>
+            <p class="empty-title">No summary yet</p>
+            <p class="empty-hint">Select text and hit Summarize</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="panel-footer">
+      <span>Powered by Gemini</span>
+      <span class="footer-dot">·</span>
+      <span>Lens AI v1.0</span>
+    </footer>
+
+  </div>
+<script src="sidepanel.js"></script>
+</body>
+</html>

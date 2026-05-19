@@ -1,5 +1,8 @@
 // Creates a context menu item and handles right-click interactions.
 chrome.runtime.onInstalled.addListener(() => {
+	chrome.sidePanel.setPanelBehavior({
+		openPanelOnActionClick: true // Open the side panel when the extension icon is clicked
+	});
 	chrome.contextMenus.create({
 		id: "summarizeText",
 		title: "Summarize with AI",

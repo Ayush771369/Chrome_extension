@@ -7,10 +7,14 @@
         "contextMenus",
         "storage",
         "activeTab",
-        "scripting"
+        "scripting",
+        "sidePanel"
     ],
     "background": {
         "service_worker": "background.js"
+    },
+    "side_panel": {
+        "default_path": "sidepanel.html"
     },
     "icons": {
         "16": "icon/icon16.png",
@@ -19,7 +23,6 @@
         "128": "icon/icon128.png"
     },
     "action": {
-        "default_popup": "popup.html",
         "default_icon": {
             "16": "icon/icon16.png",
             "48": "icon/icon48.png",
