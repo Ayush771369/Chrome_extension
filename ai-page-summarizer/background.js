@@ -36,7 +36,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
     if (request.action === "summarizeText") {
 
-    fetch("http://localhost:3000/api/ai", {
+    fetch("https://lens-ai-backend-fuzt.onrender.com/api/ai", {
 
         method: "POST",
 
