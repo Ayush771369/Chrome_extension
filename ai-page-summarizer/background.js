@@ -36,95 +36,44 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
     if (request.action === "summarizeText") {
 
-        const apiKey = "AIzaSyClt-eWvV7AbD2-5_N--uGE0_ps7nfIcsk";
+    fetch("http://localhost:3000/api/ai", {
 
-        const apiUrl =`https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+        method: "POST",
 
-		let prompt = "";
+        headers: {
+            "Content-Type": "application/json"
+        },
 
-		if (request.actionType === "summarize") {
-
-			prompt =
-			`Summarize this text clearly and concisely:\n\n${request.text}`;
-
-		}
-
-		if (request.actionType === "explain") {
-
-			prompt =
-			`Explain this text in very simple beginner-friendly words:\n\n${request.text}`;
-
-		}
-
-		if (request.actionType === "notes") {
-
-			prompt =
-			`Convert this text into clean and organized study notes:\n\n${request.text}`;
-
-		}
-
-		if (request.actionType === "keypoints") {
-
-			prompt =
-			`Extract the key takeaways from this text as bullet points:\n\n${request.text}`;
-
-		}
-
-        const requestBody = {
-            contents: [
-                {
-                    parts: [
-                        {
-                            text: prompt
-                        }
-                    ]
-                }
-            ]
-        };
-
-        fetch(apiUrl, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(requestBody)
+        body: JSON.stringify({
+            text: request.text,
+            actionType: request.actionType
         })
-        .then(response => response.json())
-        .then(data => {
 
-            console.log(JSON.stringify(data, null, 2));
+    })
 
-           if (data.candidates && data.candidates.length > 0) {
+    .then(response => response.json())
 
-    const summary =
-        data.candidates[0].content.parts[0].text;
+    .then(data => {
 
-    sendResponse({
-        summary: summary
-    });
+        console.log("Backend Response:", data);
 
-} else {
-
-    console.error("Unexpected Gemini response:", data);
-
-    sendResponse({
-        summary: "No summary returned from Gemini."
-    });
-
-}
-
-		})
-        .catch(error => {
-
-            console.error("Gemini API Error:", error);
-
-            sendResponse({
-                summary: "Failed to generate summary."
-            });
-
+        sendResponse({
+            summary: data.result
         });
 
-        return true;
-    }
+    })
+
+    .catch(error => {
+
+        console.error("Backend Error:", error);
+
+        sendResponse({
+            summary: "Backend error."
+        });
+
+    });
+
+    return true;
+}
 
 });
